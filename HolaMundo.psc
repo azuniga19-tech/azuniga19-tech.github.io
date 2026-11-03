@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Verificador de edad - Tercer Parcial</title>
+    <link rel="stylesheet" href="gokuestilo.css">
+    <style>
+        /* Estilos específicos para el formulario de verificación */
+        .form-verificador {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #b2c8e6;
+            margin-top: 15px;
+            max-width: 400px;
+        }
+
+        .campo-grupo {
+            margin-bottom: 15px;
+        }
+
+        .campo-grupo label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1f1dc5;
+        }
+
+        .campo-grupo input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-verificar {
+            background-color: blueviolet;
+            color: aliceblue;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-verificar:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="vegito2.jpg" alt="Encabezado Vegito">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Página principal</a></li>
+            <li>
+                <a href="#">Conocenos</a>
+                <ul>
+                    <li><a href="informacion.html">Informacion personal</a></li>
+                    <li><a href="pasatiempo.html">Pasatiempo</a></li>
+                </ul>   
+            </li>
+            <li>
+                <a href="#">Segundo parcial</a>
+                <ul>
+                    <li><a href="practica1.html">Práctica uno</a></li>
+                    <li><a href="posiciones.html">Posiciones</a></li>
+                    <li><a href="mundodigital.html">Mi mundo digital</a></li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Tercer parcial</a>
+                <ul>
+                    <li><a href="practica1_p3.html">Práctica uno</a></li>
+                    <li><a href="edad.html">Verificador de edad</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- SECCIÓN PRINCIPAL -->
+        <aside class="principal">
+            <h2>🔞 Verificador de edad</h2>
+            <p>Ingresa tu edad en el siguiente campo para comprobar si eres mayor o menor de edad.</p>
+
+            <div class="form-verificador">
+                <div class="campo-grupo">
+                    <label for="campoEdad">Edad:</label>
+                    <input type="number" id="campoEdad" placeholder="Ej. 18" min="0">
+                </div>
+                <button class="btn-verificar" onclick="verificarEdad()">Verificar</button>
+            </div>
+        </aside>
+
+        <!-- SECCIÓN SECUNDARIA -->
+        <aside class="secundario">
+            <h3>📹 Video destacado</h3>
+            <iframe width="100%" height="210" src="https://www.youtube.com/embed/6Pqf_IITt-M" title="Reproductor de video de YouTube" frameborder="0" allowfullscreen></iframe>
+        </aside>
+    </main>
+
+    <footer>
+        <img src="logoucol.png" alt="Logo Universidad de Colima">
+        <div>
+            <p><strong>Universidad de Colima</strong></p>
+            <p>Bachillerato 8</p>
+            <p>Programacion de Internet</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE JAVASCRIPT -->
+    <script>
+        function verificarEdad() {
+            // 1. Obtener el elemento HTML y recuperar su valor mediante .value
+            let inputEdad = document.getElementById("campoEdad");
+            let textoValor = inputEdad.value;
+
+            // 2. Verificar que el campo no esté vacío (.trim() remueve espacios)
+            if (textoValor.trim() === "") {
+                alert("Por favor, ingresa tu edad antes de verificar.");
+                return;
+            }
+
+            // Convertir la entrada a un número
+            let edad = Number(textoValor);
+
+            // 3. Evaluar condiciones usando if, else if, else
+            if (isNaN(edad) || edad < 0) {
+                // Validación para que sea un número válido y mayor o igual a cero
+                alert("Por favor, ingresa un número válido y mayor o igual a cero.");
+            } else if (edad >= 18) {
+                // Evaluación para 18 años o más
+                alert("Eres mayor de edad");
+            } else {
+                // Evaluación para menor de 18 años
+                alert("Eres menor de edad");
+            }
+        }
+    </script>
+
+</body>
+</html>
